@@ -29,3 +29,15 @@ type MatrixDistanceResponse = {
     }
   ];
 };
+type OrderType = {
+  id: number;
+  from_location: string;
+  to_location: string;
+  date: string;
+  time: string;
+  type_of_transport: string;
+  type_of_cargo: string;
+  phone: string;
+  status: string;
+  price: number;
+};

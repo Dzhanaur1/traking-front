@@ -8,6 +8,7 @@ export const dadataFetch = async (
       "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address",
       {
         query: query,
+        count: 3,
         locations: [
           {
             city_type_full: "город",

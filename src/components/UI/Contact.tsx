@@ -1,6 +1,25 @@
-import React from "react";
+"use client";
+import axios from "axios";
+import React, { useState } from "react";
 
 const Contact = () => {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+
+  const sendMail = async (e: React.ChangeEvent<EventTarget>) => {
+    e.preventDefault();
+
+    const response = await axios.post(
+      "http://localhost/truking-back/public/api/send",
+      {
+        name,
+        phone,
+        email,
+      }
+    );
+    return alert(response.data.message);
+  };
   return (
     <div className="container flex justify-between items-center my-[150px]  ">
       <img src="images/contact.png" alt="" />
@@ -19,21 +38,30 @@ const Contact = () => {
           action=""
         >
           <input
+            onChange={(event) => setName(event.target.value)}
+            value={name}
             type="text"
             placeholder="Имя"
             className=" w-full py-[10px] px-[15px] text-black outline-none bg-white rounded-[5px] md:min-h-[43px] "
           />
           <input
             type="tel"
+            onChange={(event) => setPhone(event.target.value)}
+            value={phone}
             placeholder="Номер телефона"
             className=" w-full py-[10px] px-[15px] text-black outline-none bg-white rounded-[5px] md:min-h-[43px] "
           />
           <input
+            onChange={(event) => setEmail(event.target.value)}
+            value={email}
             type="email"
             placeholder="Почта"
             className=" w-full py-[10px] px-[15px] text-black outline-none bg-white rounded-[5px] md:min-h-[43px] "
           />
-          <button className="button-red w-full md:max-w-[250px]">
+          <button
+            className="button-red w-full md:max-w-[250px]"
+            onClick={(e) => sendMail(e)}
+          >
             Отправить
           </button>
         </form>

@@ -1,5 +1,5 @@
 "use client";
-import Popup from "@/components/Popup";
+import Popup from "@/components/UI/Popup";
 import PriceBuiderForm from "@/components/PriceBuilder";
 import { getOrders } from "@/utils/getOrders";
 import React, { useEffect, useState } from "react";

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import TransitPriceBuilder from "../PriceBuilder";
 import { tree } from "next/dist/build/templates/app-page";
-import Popup from "../Popup";
+import Popup from "./Popup";
 import PriceBuiderForm from "../PriceBuilder";
 
 const Intro = () => {
